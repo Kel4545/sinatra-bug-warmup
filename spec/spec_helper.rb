@@ -1,5 +1,5 @@
 require "./app"
-require "capybara/rspec"
+require "Capybara/rspec"
 ENV["RACK_ENV"] = "test"
 
 Capybara.app = App

@@ -59,12 +59,17 @@ namespace :db do
     file.puts(<<-TEMPLATE)
 class #{migration_class_name} < ActiveRecord::Migration
   def up
-    # add migration code here
+    create_table :users do |t|
+      t.string :username
+      t.string :password
+      t.string :email
+      t.boolean :name_is_hunter, null: false
+    end
   end
+end
 
-  def down
-    # add reverse migration code here
-  end
+def down
+  drop_table :users
 end
     TEMPLATE
     file.close
